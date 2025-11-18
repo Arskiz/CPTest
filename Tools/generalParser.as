@@ -14,6 +14,7 @@
         
         // Locate all objects
         var pos = 0;
+        var objCount = 0;
         while (pos < raw.length) {
             var start = raw.indexOf("{", pos);
             if (start == -1) break;
@@ -29,6 +30,11 @@
             end--; // Go back to the actual } position
             
             var objStr = raw.substring(start + 1, end);
+            
+            objCount++;
+            trace("=== OBJECT #" + objCount + " ===");
+            trace("Start: " + start + ", End: " + end);
+            trace("First 100 chars: " + objStr.substr(0, 100));
             
             // Parse object - split by comma BUT respect nesting
             var obj = {};
@@ -80,12 +86,13 @@
                 }
             }
             
+            trace("Parsed ID: " + obj.paper_item_id);
             items.push(obj);
             
-            // CRITICAL FIX: Start searching AFTER the opening brace, not after closing
             pos = start + 1;
         }
         
+        trace("TOTAL ITEMS: " + items.length);
         callback(items);
         
     };
