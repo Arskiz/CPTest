@@ -1,0 +1,5 @@
+﻿#include "../Tools/generalParser.as"
+var url = "https://media1.newcp.net/play/en/web_service/game_configs/paper_items.json";
+parseArray(url, function(result){
+    _global.PAPER_ITEMS_NEWCP = result;
+});
