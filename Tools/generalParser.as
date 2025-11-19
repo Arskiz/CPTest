@@ -86,7 +86,7 @@
                 }
             }
             
-            //trace("Parsed ID: " + obj.paper_item_id);
+            trace("Parsed ID: " + obj.paper_item_id);
             items.push(obj);
             
             pos = start + 1;
