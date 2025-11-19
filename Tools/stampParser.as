@@ -1,4 +1,4 @@
-﻿function parseArray(url, callback){
+﻿function parseStamp(url, callback){
 	var lv = new LoadVars();
 	lv.onData = function(raw) {
 		if(raw == undefined){

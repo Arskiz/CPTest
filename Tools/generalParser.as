@@ -8,9 +8,15 @@
         
         // Remove BOM
         raw = raw.split("\ufeff").join("");
+		
+		// After removing BOM, check if it starts with [
+		if (raw.charAt(0) == '[') {
+			raw = raw.substring(1, raw.length - 1); // Remove [ and ]
+		}
         
         // Create the array
         var items = [];
+		var itemIndex = 0;  // ADD THIS
         
         // Locate all objects
         var pos = 0;
@@ -87,9 +93,10 @@
             }
             
             trace("Parsed ID: " + obj.paper_item_id);
-            items.push(obj);
+            items[itemIndex] = obj; 
+			itemIndex++;             
             
-            pos = start + 1;
+            pos = end + 1;
         }
         
         trace("TOTAL ITEMS: " + items.length);

@@ -1,4 +1,4 @@
-﻿function parseArray(url, callback) {
+﻿function parseRoom(url, callback) {
     var lv = new LoadVars();
     lv.onData = function(raw) {
         // Poista BOM
